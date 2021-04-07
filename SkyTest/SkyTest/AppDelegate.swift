@@ -3,7 +3,7 @@
 //  SkyTest
 //
 //  Created by Milena Pereira de Araujo on 7/04/21.
-//  Copyright © 2021 Milena. All rights reserved.
+//  Copyright © 2021 Milena. All rights reserved..
 //
 
 import UIKit
