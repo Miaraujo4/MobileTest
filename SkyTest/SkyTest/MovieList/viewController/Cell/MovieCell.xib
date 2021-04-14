@@ -41,6 +41,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="149" height="118"/>
+            <connections>
+                <outlet property="movieImage" destination="fS1-A3-Mzw" id="KWl-UD-cwV"/>
+                <outlet property="movieNameLabel" destination="AxW-ci-BsB" id="YEV-9w-xJF"/>
+            </connections>
             <point key="canvasLocation" x="209.42028985507247" y="153.34821428571428"/>
         </collectionViewCell>
     </objects>

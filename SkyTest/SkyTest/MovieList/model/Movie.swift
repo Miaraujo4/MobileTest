@@ -9,8 +9,10 @@
 import Foundation
 
 struct Movie: Decodable {
-    var title: MovieInformation
-    var plotOutline: MovieSummary?
-    var plotSummary: MovieSummary?
-    var genres: [String]
+    var name: String
+    var image: MovieImageDetail
+//    var title: MovieInformation
+//    var plotOutline: MovieSummary?
+//    var plotSummary: MovieSummary?
+//    var genres: [String]
 }

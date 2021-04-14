@@ -27,18 +27,46 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANA-7V-GEb">
+                                <rect key="frame" x="147" y="398" width="120" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9h7-Zi-zGq">
+                                        <rect key="frame" x="50" y="30" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando os 50 primeiros Filmes, pode demorar até 1 min" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRm-Z8-l37">
+                                        <rect key="frame" x="5" y="59" width="110" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eRm-Z8-l37" secondAttribute="trailing" constant="5" id="0bj-zT-aF3"/>
+                                    <constraint firstAttribute="width" constant="120" id="BlS-a0-iq1"/>
+                                    <constraint firstItem="9h7-Zi-zGq" firstAttribute="centerX" secondItem="ANA-7V-GEb" secondAttribute="centerX" id="Gka-VF-pTR"/>
+                                    <constraint firstItem="9h7-Zi-zGq" firstAttribute="centerY" secondItem="ANA-7V-GEb" secondAttribute="centerY" constant="-10" id="L1u-M7-70J"/>
+                                    <constraint firstItem="eRm-Z8-l37" firstAttribute="leading" secondItem="ANA-7V-GEb" secondAttribute="leading" constant="5" id="mXL-Gn-ZLj"/>
+                                    <constraint firstAttribute="bottom" secondItem="eRm-Z8-l37" secondAttribute="bottom" constant="5" id="vNX-o6-Q8o"/>
+                                    <constraint firstAttribute="height" constant="100" id="xNb-5g-nfU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ANA-7V-GEb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3i3-pq-dsH"/>
                             <constraint firstItem="Cya-oC-Nvt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="HKP-73-DC0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cya-oC-Nvt" secondAttribute="bottom" constant="10" id="Rw0-Yq-eq1"/>
                             <constraint firstItem="Cya-oC-Nvt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nam-P6-Kg0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cya-oC-Nvt" secondAttribute="trailing" constant="10" id="qpi-Db-cLh"/>
+                            <constraint firstItem="ANA-7V-GEb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zFJ-N8-0JQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="y05-9D-Ae3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="9h7-Zi-zGq" id="FTf-FA-kGi"/>
+                        <outlet property="loadingView" destination="ANA-7V-GEb" id="Ns6-88-Z2z"/>
                         <outlet property="moviesListCollectionView" destination="Cya-oC-Nvt" id="fxR-YX-62n"/>
                     </connections>
                 </viewController>

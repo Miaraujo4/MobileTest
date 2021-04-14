@@ -16,6 +16,9 @@ class MovieListViewModel {
     var movies: [Movie]
     var didGetMovies: Bool
 
+    // MARK: - Delegate
+    var delegate: MovieListViewControllerProtocol?
+
     init(api: MovieListAPIProtocol = MovieListAPI()) {
         self.api = api
         self.movieIds = [String]()
@@ -26,33 +29,9 @@ class MovieListViewModel {
     func getMovies() {
         api.getPopularMovies { [weak self] response, error in
             if !error {
-                response.forEach { movie in
-                    let movieHelper: String = movie.replacingOccurrences(of: "/", with: "")
-                        .replacingOccurrences(of: "title", with: "")
-                    self?.movieIds.append(movieHelper)
-                }
-                self?.getMovieDetail(by: 49)//self?.movieIds.startIndex ?? 0)
+                self?.movies = response ?? [Movie]()
+                self?.delegate?.updateMovieList()
             }
         }
     }
-
-    func getMovieDetail(by index: Int) {
-        if movieIds.indices.contains(index) {
-            api.getMovieDetail(by: movieIds[index]) { [weak self] movie, error in
-                if !error {
-                    guard let movieResponse = movie else {
-                        print("Error getting movie object")
-                        return
-                    }
-                    self?.movies.append(movieResponse)
-                    self?.getMovieDetail(by: index + 1)
-                } else {
-                    print("Error getting detail movie")
-                }
-            }
-        } else {
-            self.didGetMovies = true
-        }
-    }
-
 }

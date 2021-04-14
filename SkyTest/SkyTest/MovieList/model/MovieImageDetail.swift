@@ -9,5 +9,5 @@
 import Foundation
 
 struct MovieImageDetail: Decodable {
-    var url: String
+    var original: String
 }
