@@ -14,18 +14,32 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var moviesListCollectionView: UICollectionView!
 
 
+    // MARK: - Properties
+    var viewModel: MovieListViewModel = MovieListViewModel()
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Cine SKY"
-        moviesListCollectionView.dataSource = self
-        moviesListCollectionView.delegate = self
-        moviesListCollectionView.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
+        viewModel.getMovies()
+        configCollectionView()
     }
 
+
+    // MARK: - Functions
+    func configCollectionView() {
+        moviesListCollectionView.dataSource = self
+        moviesListCollectionView.delegate = self
+        let widthCell = (UIScreen.main.bounds.width / 2) - 16
+        let heightCell = UIScreen.main.bounds.height * 0.35
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: widthCell, height: heightCell)
+        moviesListCollectionView.collectionViewLayout = layout
+        moviesListCollectionView.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
+    }
 }
 
-extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -41,9 +55,4 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthCell = (UIScreen.main.bounds.width / 2)
-        let heightCell = UIScreen.main.bounds.height * 0.35
-        return CGSize(width: widthCell, height: heightCell)
-    }
 }
